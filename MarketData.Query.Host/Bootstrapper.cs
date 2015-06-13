@@ -1,6 +1,7 @@
 ﻿using Castle.Facilities.Logging;
 using Castle.MicroKernel.Registration;
 using Castle.Windsor;
+using MarketData.Query.Caching;
 using MarketData.Query.Mappers;
 using MarketData.Query.Queries;
 using MarketData.Query.Services;
@@ -18,16 +19,11 @@ namespace MarketData.Query.Host
 
             Mappers.Mappers.Init();
 
-            container.Register(Component.For<IMapper>()
-               .ImplementedBy<Mapper>()
-               .LifestyleSingleton());
-
-
+            container.Register(Component.For<IMapper>().ImplementedBy<Mapper>());
+            container.Register(Component.For<ICache>().ImplementedBy<InMemoryCache>());
             container.Register(Component.For<ICompanyQuery>().ImplementedBy<CompanyQuery>());
             container.Register(Component.For<ICompanyService>().ImplementedBy<CompanyService>());
-
             container.Register(Component.For<IPingService>().ImplementedBy<PingService>());
-
         }
     }
 }
