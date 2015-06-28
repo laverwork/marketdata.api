@@ -15,6 +15,7 @@ namespace MarketData.Query.Tests.Services
         {
             var logSpy = Substitute.For<ILogger>();
             var companyQuery = Substitute.For<ICompanyQuery>();
+
             var mapper = Substitute.For<IMapper>();
             var cache = Substitute.For<ICache>();
             var companyService = new CompanyService(companyQuery, mapper, cache) { Logger = logSpy };
@@ -27,8 +28,10 @@ namespace MarketData.Query.Tests.Services
         [Fact]
         public void ShouldCacheGetCompanies()
         {
-            var logSpy = Substitute.For<ILogger>();
+            var logSpy = Substitute.For<ILogger>();          
             var companyQuery = Substitute.For<ICompanyQuery>();
+
+
             var mapper = Substitute.For<IMapper>();
             var cache = new InMemoryCache();
             var companyService = new CompanyService(companyQuery, mapper, cache) { Logger = logSpy };

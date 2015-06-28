@@ -1,3 +1,5 @@
 2015-06-01 21:30:49,343 [9] DEBUG MarketData.Query.Services.PingService [(null)] - PingService.Ping called
 2015-06-02 00:13:36,642 [9] DEBUG MarketData.Query.Services.PingService [(null)] - PingService.Ping called
 2015-06-13 13:40:47,781 [10] DEBUG MarketData.Query.Services.CompanyService [(null)] - CompanyService.GetCompanies called
+2015-06-28 08:53:36,402 [10] DEBUG MarketData.Query.Services.CompanyService [(null)] - CompanyService.GetCompanies called
+2015-06-28 08:53:36,644 [12] DEBUG MarketData.Query.Services.CompanyService [(null)] - CompanyService.GetCompanies called

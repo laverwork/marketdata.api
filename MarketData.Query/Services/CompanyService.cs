@@ -33,16 +33,20 @@ namespace MarketData.Query.Services
             _cache = cache;
         }
 
-        public async Task<IEnumerable<Company>> GetCompanies()
+        public async Task<GetCompaniesResponse> GetCompanies()
         {
             _logger.Debug("CompanyService.GetCompanies called");
 
-            var companies = await Task.Run(() =>
+            var companiesDtos = await Task.Run(() =>
                 _cache.RetreiveFromCache(CacheLock, CacheKey, DateTime.Now.AddMinutes(CacheMinutes),
                     () => _companyQuery.GetCompanies()));
-          
-            var companyList = companies.Select(x => _mapper.Map<CompanyDto, Company>(x));
-            return companyList;
+
+            return new GetCompaniesResponse
+            {
+                Companies = companiesDtos.Select(x => _mapper.Map<CompanyDto, Company>(x))
+            };
+            //var companyList = companies.Select(x => _mapper.Map<CompanyDto, Company>(x));
+            //return companyList;
         }
     }
 }

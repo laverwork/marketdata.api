@@ -90,6 +90,7 @@
   <ItemGroup>
     <Content Include="packages.config" />
     <Content Include="log4net.config" />
+    <None Include="Properties\PublishProfiles\localiis.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
